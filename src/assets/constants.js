@@ -1,0 +1,1 @@
+export const SHEET_URL = `https://sheets.googleapis.com/v4/spreadsheets/1DkcKdfBLeGTaWEiIGekvgDJH228nE6HCmCyXsSF0NJA?key=AIzaSyB5qM3qa_UBu_NBB-6okEgyQb9IxBJNkp4&includeGridData=true&prettyPrint=true`;

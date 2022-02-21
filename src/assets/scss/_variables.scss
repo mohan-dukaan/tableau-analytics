@@ -1,0 +1,82 @@
+$black: #000000;
+$black-1: #1a181e;
+$black-2: #1e2640;
+$black-3: #4d4d4d;
+
+$white: #ffffff;
+$white-1: #f7f7f7;
+$white-2: #d9d9d9;
+$white-3: #ededed;
+$white-4: #f5f5f5;
+$white-5: #d8d8d8;
+$white-6: #f2f2f2;
+$white-7: #e8e8e8;
+$white-8: #e5e5e5;
+$white-9: #e6e6e6;
+$white-10: #fafafa;
+
+$gray-1: #808080;
+$gray-2: #989898;
+$gray-3: #cccccc;
+$gray-4: #999999;
+$gray-5: #666666;
+$gray-6: #b2b2b2;
+
+$purple-1: #146eb4;
+$purple-2: #115f9c;
+$purple-3: #13458c;
+$purple-4: #3395ff;
+$purple-5: #a7d6e5;
+$purple-hover: #0e4f82;
+
+$red-1: #e50b20;
+$red-2: #cc0a1d;
+$red-3: #df1e5b;
+$red-4: #d00081;
+
+$green-1: #17b31b;
+$green-2: #139116;
+$green-3: #00af87;
+
+$orange-1: #ee741f;
+$orange-2: #cc631b;
+$orange-3: #ea6f57;
+$orange-4: #fab73b;
+$orange-5: #fb7948;
+
+$violet-1: #7d00be;
+
+$body-color: $black-1;
+
+$google-primary: #dd4b39;
+$google-hover: #cf4635;
+
+$facebook-primary: #1877f2;
+$facebook-hover: #166dde;
+
+$sm-breakpoint: (
+  min-width: 576px,
+);
+$md-breakpoint: (
+  min-width: 768px,
+);
+$lg-breakpoint: (
+  min-width: 992px,
+);
+$xl-breakpoint: (
+  min-width: 1200px,
+);
+
+$sm-container-width: 540px;
+$md-container-width: 720px;
+$lg-container-width: 960px;
+$xl-container-width: 1140px;
+
+$sidebar-width: 224px;
+$toolbar-height: 80px;
+$notificationbar-height: 42px;
+
+$space: 100;
+
+$form-check-input-indeterminate-color: $red-1 !default;
+$form-check-input-indeterminate-bg-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3e%3cpath fill='none' stroke='%23fff' stroke-linecap='round' stroke-linejoin='round' stroke-width='3' d='M6 10h8'/%3e%3c/svg%3e") !default;
