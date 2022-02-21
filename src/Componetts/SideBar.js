@@ -11,19 +11,25 @@ export default function SideBar({ data, active, handleActive }) {
       </h4>
       <hr />
       <ul className="nav nav-pills flex-column mb-auto">
-        {data.map(({ values }, idx) => (
-          <li className="nav-item" key={idx} onClick={() => handleActive(values)}>
-            <p
-              className={`nav-link fw-4 text-capitalize ${
-                JSON.stringify(values) === JSON.stringify(active)
-                  ? "active"
-                  : ""
-              }`}
+        {data
+          .filter(({ values }) => values && values[0]?.formattedValue)
+          ?.map(({ values }, idx) => (
+            <li
+              className="nav-item"
+              key={idx}
+              onClick={() => handleActive(values)}
             >
-              {values[0].formattedValue}
-            </p>
-          </li>
-        ))}
+              <p
+                className={`nav-link fw-4 text-capitalize ${
+                  JSON.stringify(values) === JSON.stringify(active)
+                    ? "active"
+                    : ""
+                }`}
+              >
+                {values[0]?.formattedValue}
+              </p>
+            </li>
+          ))}
       </ul>
       <hr />
     </div>

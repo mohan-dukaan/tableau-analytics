@@ -1,6 +1,5 @@
 import axios from "axios";
 import React, { useState } from "react";
-import parse from "html-react-parser";
 import { SHEET_URL } from "./assets/constants";
 import SideBar from "./Componetts/SideBar";
 import Tableau from "./Componetts/Tableau";
@@ -41,12 +40,3 @@ function App() {
 }
 
 export default App;
-{
-  /* <header className="App-header">
-        {data
-          .filter((_, idx) => idx !== 0)
-          .map(({ values }) => (
-            <div>{parse(values[1].formattedValue)}</div>
-          ))}
-      </header> */
-}
