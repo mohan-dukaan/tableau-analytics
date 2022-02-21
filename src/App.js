@@ -4,6 +4,7 @@ import { SHEET_URL } from "./assets/constants";
 import SideBar from "./Componetts/SideBar";
 import Tableau from "./Componetts/Tableau";
 
+
 function App() {
   const [data, setData] = useState([]);
   const [active, setActive] = useState({});
@@ -30,7 +31,7 @@ function App() {
       <div className="d-flex">
         <SideBar data={data} active={active} handleActive={handleActive} />
         {active?.length > 0 && (
-          <div className="p-4">
+          <div className="" style={{padding: 24}}>
             <Tableau url={active[1].hyperlink} />
           </div>
         )}

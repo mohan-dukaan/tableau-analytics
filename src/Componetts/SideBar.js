@@ -4,7 +4,7 @@ export default function SideBar({ data, active, handleActive }) {
   return (
     <div
       className="d-flex flex-column vh-100 flex-shrink-0 p-3 pt-4 text-white bg-primary"
-      style={{ width: 240 }}
+      style={{ width: 240, boxShadow: "rgba(0, 0, 0, 0.06) 0px 2px 4px 0px inset" }}
     >
       <h4 className="d-flex align-items-center justify-content-center m-0 text-white">
         <span className="fs-5 fw-bolder">Dukaan Analytics</span>

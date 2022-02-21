@@ -2,7 +2,9 @@ import React, { PureComponent } from "react";
 import url from "url";
 const { tableau } = window;
 
-function tokenizeUrl(_url, token) {
+// const token = "UIXMKmpsTN+eecPBgaHwYQ==:r1XxAbrhlobueA6jLfOaEf9lJskuAmRc";
+const token = null
+function tokenizeUrl(_url) {
   const parsed = url.parse(_url, true);
   const { protocol, host, pathname } = parsed;
   if (!!token) {
@@ -19,7 +21,6 @@ export default class Tableau extends PureComponent {
 
   componentWillReceiveProps(nextProps) {
     const isReportChanged = nextProps.url !== this.props.url;
-
     // Only report is changed - re-initialize
     if (isReportChanged) {
       this.initTableau(nextProps.url);
@@ -40,7 +41,13 @@ export default class Tableau extends PureComponent {
     return (
       <div
         ref={(c) => (this.container = c)}
-        style={{ width: "80vw", height: "90vh" }}
+        style={{
+          width: "80vw",
+          height: "93vh",
+          overflowY: "scroll",
+          boxShadow: "rgba(0, 0, 0, 0.35) 0px 5px 15px",
+          borderRadius: 4,
+        }}
       />
     );
   }
