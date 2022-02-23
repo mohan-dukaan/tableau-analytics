@@ -2,12 +2,24 @@
   background-color: $black-2 !important;
 }
 
+.sidebar {
+  width: 240px;
+  box-shadow: rgba(0, 0, 0, 0.06) 0px 2px 4px 0px inset;
+  .nav {
+    overflow-y: scroll;
+  }
+}
+
 .nav-pills {
   .nav-link {
     border-radius: 4px;
     padding: 10px 16px;
     color: $white;
+    width: 100%;
     cursor: pointer;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
     &.active {
       background-color: rgba($white, 0.1);
     }
