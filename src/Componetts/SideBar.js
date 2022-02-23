@@ -30,5 +30,5 @@ const Link = ({ values, active }) => {
   const classes = cx(`nav-link fw-4 text-capitalize`, {
     active: JSON.stringify(values) === JSON.stringify(active),
   });
-  return <p className={classes}>{values[0]?.formattedValue}</p>;
+  return <p className={classes} title={values[0]?.formattedValue}>{values[0]?.formattedValue}</p>;
 };
