@@ -9,6 +9,7 @@ export default function SideBar({ data = [], active, handleActive }) {
 
   useEffect(() => {
     setToggle(data[0]?.NAME || null);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [data]);
 
   const toggleMenu = (name) => {
