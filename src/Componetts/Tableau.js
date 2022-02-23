@@ -3,7 +3,7 @@ import url from "url";
 const { tableau } = window;
 
 // const token = "UIXMKmpsTN+eecPBgaHwYQ==:r1XxAbrhlobueA6jLfOaEf9lJskuAmRc";
-const token = null
+const token = null;
 function tokenizeUrl(_url) {
   const parsed = url.parse(_url, true);
   const { protocol, host, pathname } = parsed;
@@ -13,6 +13,9 @@ function tokenizeUrl(_url) {
   return protocol + "//" + host + pathname;
 }
 
+const options = {
+  toolbarPosition: "TOP",
+};
 export default class Tableau extends PureComponent {
   componentDidMount() {
     const { url } = this.props;
@@ -33,7 +36,7 @@ export default class Tableau extends PureComponent {
       this.viz.dispose();
       this.viz = null;
     }
-    this.viz = new tableau.Viz(this.container, tokenizeUrl(url));
+    this.viz = new tableau.Viz(this.container, tokenizeUrl(url), options);
     // viz = new tableau.Viz(ref.current, tokenizeUrl(url));
   };
 

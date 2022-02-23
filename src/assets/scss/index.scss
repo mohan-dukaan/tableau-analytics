@@ -4,15 +4,28 @@
 
 .sidebar {
   width: 240px;
+  padding: 24px 12px 24px 0;
   box-shadow: rgba(0, 0, 0, 0.06) 0px 2px 4px 0px inset;
+  hr {
+    margin-left: 12px;
+  }
   .nav {
     overflow-y: scroll;
   }
 }
 
 .nav-pills {
+  .nav-item {
+    svg {
+      transition: all 0.5s ease;
+    }
+    &.collapsed {
+      svg {
+        transform: rotate(-90deg);
+      }
+    }
+  }
   .nav-link {
-    border-radius: 4px;
     padding: 10px 16px;
     color: $white;
     width: 100%;
@@ -20,11 +33,31 @@
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
+    border-radius: 0 20px 20px 0;
+    span {
+      margin-left: 10px;
+      transition: all 0.35s ease;
+    }
     &.active {
       background-color: rgba($white, 0.1);
     }
+    &.sub {
+      padding: 10px 16px 10px 32px;
+      span {
+        margin-left: 16px;
+      }
+      &.active {
+        background-color: rgba($white, 0.05);
+      }
+      &:hover {
+        span {
+          margin-left: 22px;
+        }
+      }
+    }
+
     &:hover {
-      background-color: rgba($white, 0.05);
+      background-color: rgba($white, 0.03);
     }
   }
 }
