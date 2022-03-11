@@ -19,10 +19,10 @@ export default function SideBar({ data = [], active, handleActive }) {
   return (
     <div className="d-flex flex-column vh-100 flex-shrink-0 text-white bg-primary sidebar">
       <h4 className="d-flex align-items-center justify-content-center m-0 text-white">
-        <span className="fs-5 fw-bolder">Dukaan Analytics</span>
+        {/* <span className="fs-5 fw-bolder">Dukaan Analytics</span> */}
+        <img src="/logo.svg" alt="" />
       </h4>
-      <hr />
-      <ul className="nav nav-pills mb-auto">
+      <ul className="nav nav-pills mb-auto mt-24">
         {data?.map((ele, idx) => (
           <CollapseMenu
             key={idx}
@@ -46,7 +46,7 @@ const CollapseMenu = ({ data, open, active, handleActive, toggleMenu }) => {
     open ? bsCollapse.show() : bsCollapse.hide();
   }, [open]);
 
-  const classes = cx(`nav-item mt-1 w-100`, {
+  const classes = cx(`nav-item mt-4 w-100`, {
     collapsed: open === true,
   });
 
@@ -62,7 +62,7 @@ const CollapseMenu = ({ data, open, active, handleActive, toggleMenu }) => {
       <div className="collapse w-100" id={data.NAME}>
         {data?.sub_menu?.map((el, idx) => (
           <li
-            className="nav-item mt-1 w-100"
+            className="nav-item mt-4 w-100"
             key={idx}
             onClick={() => handleActive(el)}
           >
