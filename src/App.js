@@ -42,14 +42,16 @@ function App() {
           var sub_menu = data.filter((el) => el[header[0]] === c);
           return [...a, { NAME: c, sub_menu }];
         }, []);
+        var name = JSON.parse(localStorage.getItem("toggle")) || null;
+        setActive(name||menu_data[0]?.sub_menu[0] || []);
         setData(menu_data);
-        setActive(menu_data[0]?.sub_menu[0] || []);
       })
       .catch((err) => console.log(err));
   }, []);
 
   const handleActive = (row) => {
     setActive(row);
+    localStorage.setItem("toggle", JSON.stringify(row));
   };
 
   return (

@@ -54,6 +54,15 @@ $google-hover: #cf4635;
 $facebook-primary: #1877f2;
 $facebook-hover: #166dde;
 
+$grid-breakpoints: (
+  xs: 0,
+  sm: 576px,
+  md: 768px,
+  lg: 992px,
+  xl: 1200px,
+  xxl: 1400px
+);
+
 $sm-breakpoint: (
   min-width: 576px,
 );

@@ -42,16 +42,7 @@ export default class Tableau extends PureComponent {
 
   render() {
     return (
-      <div
-        ref={(c) => (this.container = c)}
-        style={{
-          width: "80vw",
-          height: "93vh",
-          overflowY: "scroll",
-          boxShadow: "rgba(0, 0, 0, 0.35) 0px 5px 15px",
-          borderRadius: 4,
-        }}
-      />
+      <div className="table-container" ref={(c) => (this.container = c)} />
     );
   }
 }
