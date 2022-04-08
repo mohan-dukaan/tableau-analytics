@@ -7,6 +7,7 @@
     display: flex;
     width: 240px;
     padding: 24px 12px 24px 0;
+    transition: all 0.5s ease;
     box-shadow: rgba(0, 0, 0, 0.06) 0px 2px 4px 0px inset;
     hr {
       margin-left: 12px;
@@ -17,9 +18,20 @@
     .mobile-close {
       display: none;
     }
-    @media (max-width: 768px) {
-      position: absolute;
-      display: none;
+  }
+  @media (max-width: 768px) {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    display: none;
+    &.show {
+      display: block;
+      background-color: rgba(0, 0, 0, 0.5);
+    }
+    .sidebar {
+      position: relative;
       &.open-mobile {
         display: flex;
         padding-top: 48px;
@@ -43,27 +55,26 @@
       }
     }
   }
+}
 
-  .mobile-header {
-    transition: all 0.5s ease;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    position: absolute;
-    box-shadow: rgba(0, 0, 0, 0.06) 0px 2px 4px 0px inset;
-    left: 0;
-    right: 0;
-    top: 0;
-    padding: 8px 24px;
-    img {
-      width: 50%;
-    }
-    &.hide-mobile {
-      display: none;
-    }
-    @media (min-width: 768px) {
-      display: none;
-    }
+.mobile-header {
+  transition: all 0.5s ease;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: rgba(0, 0, 0, 0.06) 0px 2px 4px 0px inset;
+  left: 0;
+  right: 0;
+  top: 0;
+  padding: 12px 18px;
+  img {
+    width: 70%;
+  }
+  &.hide-mobile {
+    display: none;
+  }
+  @media (min-width: 768px) {
+    display: none;
   }
 }
 
@@ -119,14 +130,19 @@
   }
 }
 
-.table-container {
-  width: 80vw;
-  height: calc(100vh - 48px);
-  overflow-y: scroll;
-  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
-  border-radius: 4px;
+.table-wrapper {
+  padding: 24px;
+  .table-container {
+    width: 80vw;
+    height: calc(100vh - 24px + 54px);
+    overflow-y: scroll;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    border-radius: 4px;
+  }
   @media (max-width: 768px) {
-    width: calc(100vw - 48px);
-    margin-top: 24px;
+    padding: 14px;
+    .table-container {
+      width: calc(100vw - 24px);
+    }
   }
 }

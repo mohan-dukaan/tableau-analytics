@@ -1,5 +1,8 @@
 import axios from "axios";
+import cx from "classnames";
 import React, { useState } from "react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faBarsProgress } from "@fortawesome/free-solid-svg-icons";
 import { SHEET_URL } from "./assets/constants";
 import SideBar from "./Componetts/SideBar";
 import Tableau from "./Componetts/Tableau";
@@ -7,6 +10,7 @@ import Tableau from "./Componetts/Tableau";
 function App() {
   const [data, setData] = useState([]);
   const [active, setActive] = useState({});
+  var [openMenu, setOpenMenu] = useState(false);
 
   React.useEffect(() => {
     axios
@@ -43,7 +47,7 @@ function App() {
           return [...a, { NAME: c, sub_menu }];
         }, []);
         var name = JSON.parse(localStorage.getItem("toggle")) || null;
-        setActive(name||menu_data[0]?.sub_menu[0] || []);
+        setActive(name || menu_data[0]?.sub_menu[0] || []);
         setData(menu_data);
       })
       .catch((err) => console.log(err));
@@ -54,12 +58,33 @@ function App() {
     localStorage.setItem("toggle", JSON.stringify(row));
   };
 
+  const mobile = cx(`mobile-header bg-primary text-white`, {
+    "hide-mobile": openMenu,
+    "display-mobile": !openMenu,
+  });
+
   return (
     <div className="App">
+      <div className={mobile}>
+        <div>
+          <img src="/logo.svg" alt="" />
+        </div>
+        <FontAwesomeIcon
+          className="fs-2"
+          icon={faBarsProgress}
+          onClick={() => setOpenMenu(true)}
+        />
+      </div>
       <div className="d-flex">
-        <SideBar data={data} active={active} handleActive={handleActive} />
+        <SideBar
+          data={data}
+          active={active}
+          handleActive={handleActive}
+          setOpenMenu={setOpenMenu}
+          openMenu={openMenu}
+        />
         {Object.keys(active).length > 0 && (
-          <div className="" style={{ padding: 24 }}>
+          <div className="table-wrapper">
             <Tableau url={active.URL} />
           </div>
         )}

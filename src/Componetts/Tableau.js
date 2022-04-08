@@ -39,10 +39,12 @@ export default class Tableau extends PureComponent {
     this.viz = new tableau.Viz(this.container, tokenizeUrl(url), options);
     // viz = new tableau.Viz(ref.current, tokenizeUrl(url));
   };
+  
 
   render() {
+  
     return (
-      <div className="table-container" ref={(c) => (this.container = c)} />
+      <div className="table-container" ref={(c) => (this.container = c)}  />
     );
   }
 }

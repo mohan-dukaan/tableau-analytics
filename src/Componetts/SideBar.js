@@ -2,15 +2,16 @@ import cx from "classnames";
 import React, { useState, useEffect } from "react";
 import { Collapse } from "bootstrap";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {
-  faChevronDown,
-  faBarsProgress,
-  faClose,
-} from "@fortawesome/free-solid-svg-icons";
+import { faChevronDown, faClose } from "@fortawesome/free-solid-svg-icons";
 
-export default function SideBar({ data = [], active, handleActive }) {
+export default function SideBar({
+  data = [],
+  openMenu,
+  setOpenMenu,
+  active,
+  handleActive,
+}) {
   var [toggle, setToggle] = useState(null);
-  var [openMenu, setOpenMenu] = useState(false);
 
   useEffect(() => {
     setToggle(active?.PARENT || data[0]?.NAME || null);
@@ -21,6 +22,10 @@ export default function SideBar({ data = [], active, handleActive }) {
     setToggle(toggle === name ? null : name);
   };
 
+  const container = cx("sidebar-container", {
+    show: openMenu,
+  });
+
   const sidebar = cx(
     ` flex-column vh-100 flex-shrink-0 text-white bg-primary sidebar`,
     {
@@ -29,23 +34,16 @@ export default function SideBar({ data = [], active, handleActive }) {
     }
   );
 
-  const mobile = cx(`mobile-header bg-primary text-white`, {
-    "hide-mobile": openMenu,
-    "display-mobile": !openMenu,
-  });
+  const checkClick = (e) => {
+    var container = document.getElementById("side-bar");
+    if (!container.contains(e.target)) {
+      setOpenMenu(false);
+    }
+  };
 
   return (
-    <div className="sidebar-container">
-      <div className={mobile}>
-        <div>
-          <img src="/logo.svg" alt="" />
-        </div>
-        <FontAwesomeIcon
-          icon={faBarsProgress}
-          onClick={() => setOpenMenu(true)}
-        />
-      </div>
-      <div className={sidebar}>
+    <div className={container} onClick={checkClick}>
+      <div className={sidebar} id="side-bar">
         <h4 className="d-flex align-items-center justify-content-center m-0 text-white">
           <img src="/logo.svg" alt="" />
         </h4>
